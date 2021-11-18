@@ -3,12 +3,11 @@
     <Header />
     <main id="main">
       <section id="mainCont">
-        <h2 className="sr-only">메인 컨텐츠 영역입니다.</h2>
-        <div className="main__cont">
-          <div>we provide</div>
-          <div>visual coding</div>
-          <div>solutions</div>
-          <div>for you webs</div>
+        <h2 class="sr-only">메인 컨텐츠 영역입니다.</h2>
+        <div class="main__cont">
+          <div v-for="title in titles" v-bind:key="title.text">
+            {{ title.text }}
+          </div>
         </div>
       </section>
     </main>
@@ -24,6 +23,28 @@ export default {
   components: {
     Header,
     Footer,
+  },
+
+  //선언적 랜더링
+  // data() {
+  //   return {
+  //     msg1: 'we provide',
+  //     msg2: 'visual coding',
+  //     msg3: 'solutions',
+  //     msg4: 'for you webs',
+  //   };
+  // },
+
+  //반복문
+  data: function () {
+    return {
+      titles: [
+        { text: 'we provide' },
+        { text: 'visual coding' },
+        { text: 'solutions' },
+        { text: 'for you webs' },
+      ],
+    };
   },
 };
 </script>
